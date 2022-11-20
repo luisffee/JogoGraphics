@@ -15,7 +15,8 @@ class Game:
         while True:
             self.key = self.screen.checkKey()
             self.player.drawP(self.key)
-            self.level.move_map(self.player.input(self.key))
+            recpoints = self.player.drawR()
+            self.level.move_map(self.player.input(self.key), recpoints)
 
             if 'Escape' in self.key:
                 break
