@@ -44,7 +44,7 @@ class Player:
                 for img in self.listaWalkRight:
                     img.draw(self.win)
                     update()
-                    time.sleep(0.07)
+                    # time.sleep(0.07)
                     img.undraw()
                     self.w = img.getWidth()
                     self.h = img.getHeight()
@@ -53,7 +53,7 @@ class Player:
                 for img in self.listaWalkLeft:
                     img.draw(self.win)
                     update()
-                    time.sleep(0.07)
+                    # time.sleep(0.07)
                     img.undraw()
                     self.w = img.getWidth()
                     self.h = img.getHeight()
@@ -72,7 +72,7 @@ class Player:
                 for imgs in self.listaIdleLeft:
                     imgs.draw(self.win)
                     update()
-                    time.sleep(0.07)
+                    # time.sleep(0.07)
                     imgs.undraw()
                     self.w = img.getWidth()
                     self.h = img.getHeight()
@@ -80,7 +80,7 @@ class Player:
                 for imgs in self.listaIdleRight:
                     imgs.draw(self.win)
                     update()
-                    time.sleep(0.07)
+                    # time.sleep(0.07)
                     imgs.undraw()
                     self.w = img.getWidth()
                     self.h = img.getHeight()
@@ -92,26 +92,32 @@ class Player:
             data = data.split(':')
             x = int(data[0])
             y = int(data[1])
+        direc = [0, 0]
         if self.key == 'w':
             '''y -= 10
             with open('components/position.txt', 'w+') as file:
                 file.write(str(x)+':'+str(y))'''
-            return 'Up'
+            direc[1] += +1
+            return direc
         if self.key == 's':
             '''y += 10
             with open('components/position.txt', 'w+') as file:
                 file.write(str(x)+':'+str(y))'''
-            return 'Down'
+            direc[1] += -1
+            return direc
         if self.key == 'd':
             '''x += 10
             with open('components/position.txt', 'w+') as file:
                 file.write(str(x)+':'+str(y))'''
-            return 'Right'
+            direc[0] += -1
+            return direc
         if self.key == 'a':
             '''x -= 10
             with open('components/position.txt', 'w+') as file:
                 file.write(str(x)+':'+str(y))'''
-            return 'Left'
+            direc[0] += +1
+            return direc
+        return direc
 
     def drawR(self):
 
@@ -129,4 +135,3 @@ class Player:
 
     def update(self, key):
         self.drawP(key)
-        self.input(key)

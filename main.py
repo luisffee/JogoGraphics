@@ -8,15 +8,12 @@ class Game:
     def __init__(self):
         self.screen = GraphWin(f'{GAMENAME}', WIDTH, HEIGHT, autoflush=False)
         self.level = Level(self.screen)
-        self.player = Player(self.screen)
         # pass
 
     def run(self):
         while True:
             self.key = self.screen.checkKey()
-            self.player.drawP(self.key)
-            recpoints = self.player.drawR()
-            self.level.move_map(self.player.input(self.key), recpoints)
+            self.level.update(self.key)
 
             if 'Escape' in self.key:
                 break
