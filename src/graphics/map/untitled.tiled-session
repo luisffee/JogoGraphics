@@ -1,0 +1,201 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "map.tmx",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "fileStates": {
+        "": {
+            "scaleInDock": 1
+        },
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/1.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/Border.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/Floor1.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/Floor2.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/Floor3.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/Floor4.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/Floor5.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/Fog_01.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/Fog_tiles.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/Map_tiles.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/Roof1_1.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/Roof1_2.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/Wall1_1.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/Wall1_2.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/Wall1_3.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/Wall1_4.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/Wall1_5.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/Wall1_6.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/Wall1_8.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/Wall2_1.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/detail1.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/objects_house_0000_Layer-1.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/objects_house_0001_Layer-2.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/objects_house_0056_Layer-57.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/roof.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/roof_0001_Layer-2.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/roof_0002_Layer-3.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/roof_0003_Layer-4.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/roof_0004_Layer-5.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/roof_0006_Layer-7.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/roof_0007_Layer-8.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/roof_0009_Layer-10.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/roof_0010_Layer-11.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/walls_0001_Layer-2.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "map.tmx": {
+            "scale": 0.5,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 644,
+                "y": 450
+            }
+        },
+        "roof_0000_Layer-1.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        }
+    },
+    "last.exportedFilePath": "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/map",
+    "last.imagePath": "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/sprites",
+    "map.height": 70,
+    "map.lastUsedExportFilter": "All Files (*)",
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 64,
+    "map.tileWidth": 64,
+    "map.width": 70,
+    "openFiles": [
+        "map.tmx",
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/Map_tiles.tsx"
+    ],
+    "project": "untitled.tiled-project",
+    "property.type": "file",
+    "recentFiles": [
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/Map_tiles.tsx",
+        "map.tmx",
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/Fog_tiles.tsx",
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/Fog_01.tsx",
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/Border.tsx",
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/1.tsx",
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/Floor1.tsx",
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/detail1.tsx",
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/Wall1_1.tsx",
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/Wall1_3.tsx",
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/Wall1_6.tsx",
+        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/Wall1_8.tsx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 64,
+        "width": 64
+    },
+    "tileset.transparentColor": "#ff0000",
+    "tileset.type": 0,
+    "tileset.useTransparentColor": false
+}

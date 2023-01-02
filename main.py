@@ -2,6 +2,7 @@ from graphics import *
 from settings import *
 from level import Level
 from player import Player
+import _thread
 
 
 class Game:

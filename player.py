@@ -1,5 +1,6 @@
 from graphics import *
 from settings import *
+import _thread
 
 
 class Player:
@@ -121,12 +122,14 @@ class Player:
 
     def drawR(self):
 
-        x1 = (WIDTH // 2) - (self.w // 2) + 12
+        x1 = (WIDTH // 2) - (self.w // 2) + 10
         y1 = (HEIGHT // 2) - (self.h // 2) + 58
-        x2 = (WIDTH // 2) + (self.w // 2) - 12
+        x2 = (WIDTH // 2) + (self.w // 2) - 16
         y2 = (HEIGHT // 2) + (self.h // 2) + 2
 
-        self.rec = Rectangle(Point(x1, y1), Point(x2, y2))
+        self.rec = Rectangle(Point(x1, y1), Point(
+            x2, y2))
+        self.rec.setState('hidden')
         self.rec.draw(self.win)
         recpoints = []
         recpoints.append(self.rec.getP1())

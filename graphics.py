@@ -402,6 +402,9 @@ class GraphWin(tk.Canvas):
             item.draw(self)
         self.update()
 
+    def after(self, miliseconds):
+        self.master.after(miliseconds)
+
 
 class Transform:
 
@@ -439,7 +442,9 @@ DEFAULT_CONFIG = {"fill": "",
                   "arrow": "none",
                   "text": "",
                   "justify": "center",
-                  "font": ("helvetica", 12, "normal")}
+                  "font": ("helvetica", 12, "normal"),
+                  "state": 'normal'
+                  }
 
 
 class GraphicsObject:
@@ -475,6 +480,9 @@ class GraphicsObject:
     def setWidth(self, width):
         """Set line weight to width"""
         self._reconfig("width", width)
+
+    def setState(self, state):
+        self._reconfig("state", state)
 
     def draw(self, graphwin):
         """Draw the object in graphwin, which should be a GraphWin
@@ -579,7 +587,7 @@ class _BBox(GraphicsObject):
     # Internal base class for objects represented by bounding box
     # (opposite corners) Line segment is a degenerate case.
 
-    def __init__(self, p1, p2, options=["outline", "width", "fill"]):
+    def __init__(self, p1, p2, options=["outline", "width", "fill", "state"]):
         GraphicsObject.__init__(self, options)
         self.p1 = p1.clone()
         self.p2 = p2.clone()

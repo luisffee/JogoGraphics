@@ -1,55 +1,29 @@
-from tkinter import *
+from graphics import *
+from settings import *
 import time
+from threading import Thread
 
-WIDTH = 800
-HEIGHT = 500
-SIZE = 100
-tk = Tk()
-canvas = Canvas(tk, width=WIDTH, height=HEIGHT, bg="blue")
-canvas.pack()
-color = 'black'
+screen = GraphWin(f'{GAMENAME}', WIDTH, HEIGHT, autoflush=False)
+
+start_time = time.time()
 
 
-class Ball:
-    def __init__(self, tag):
-        self.shape = canvas.create_oval(0, 0, SIZE, SIZE, fill=color, tags=tag)
-        self.speedx = 9  # changed from 3 to 9
-        self.speedy = 9  # changed from 3 to 9
-        self.active = True
+class a():
+    def i(self):
 
-    def ball_update(self):
-        canvas.move(self.shape, self.speedx, self.speedy)
-        pos = canvas.coords(self.shape)
-        if pos[2] >= WIDTH or pos[0] <= 0:
-            self.speedx *= -1
-        if pos[3] >= HEIGHT or pos[1] <= 0:
-            self.speedy *= -1
-
-
-global switcher
-switcher = True
+        listaIdleLeft = []
+        for i in range(1, 10):
+            img = Image(Point(WIDTH//2, HEIGHT//2),
+                        f'src/sprites/Zombies/Wild Zombie/Idle/Idle_left ({i}).png')
+            listaIdleLeft.append(img)
+        for img in listaIdleLeft:
+            img.draw(screen)
+            update()
+            time.sleep(0.07)
+            img.undraw()
 
 
-def cycle():
-    global switcher
-    canvas.tag_raise("bg")
-    if switcher:
-        ball2.ball_update()
-        ball2.ball_update()
-        canvas.tag_raise("ball")
-    else:
-        ball.ball_update()
-        ball.ball_update()
-        canvas.tag_raise("ball2")
-    tk.update_idletasks()
-    switcher = not switcher
-    tk.after(20, cycle)
+ass = a()
+while True:
 
-
-bg = canvas.create_rectangle(0, 0, WIDTH+1, HEIGHT+1, fill="gray", tags="bg")
-ball = Ball("ball")
-ball.ball_update()
-ball2 = Ball("ball2")
-
-tk.after(0, cycle)
-tk.mainloop()
+    ass.i()
