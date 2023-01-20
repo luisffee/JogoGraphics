@@ -15,7 +15,7 @@ class Enemy(Entities):
         self.status = 'Idle'
         self.actual_count = 0
         self.cooldown = False
-        self.attacked = False
+        self.attacked = [False]
 
         # self.import_graphics(type)
         # self.draw()
@@ -49,7 +49,7 @@ class Enemy(Entities):
                 if self.actual_count >= 0.3:
                     self.actual_count = 0
                     self.cooldown = False
-                    self.attacked = False
+                    self.attacked = [False]
             cou1 = perf_counter()
 
             if zombie.getAnchor().x - WIDTH//2 > 0:
@@ -64,49 +64,53 @@ class Enemy(Entities):
             self.distvector = int(math.hypot(
                 zombie.getAnchor().x - WIDTH//2, zombie.getAnchor().y - HEIGHT//2))
 
-            if (self.distvector <= 200):
+            if (self.distvector <= enemy_data['wild_zombie']['detect_range']):
                 if self.distvector > 45:
-                    zombie.move(1.5 * self.directx, 1.5 * self.directy)
+                    zombie.move(
+                        enemy_data['wild_zombie']['speed'] * self.directx, enemy_data['wild_zombie']['speed'] * self.directy)
 
-            if self.distvector <= 45:
-
-                if self.cooldown != True:
-                    self.attacked = True
-                    pos = zombie.getAnchor()
-                    if self.directx == -1:
-                        listaAttackLeft = []
-                        for i in range(1, 5):
-                            img = Image(pos,
-                                        f'src/sprites/Zombies/Wild Zombie/Attack/Attack_left_{i}.png')
-                            listaAttackLeft.append(img)
-                        zombie.setState('hidden')
-                        for img in listaAttackLeft:
-                            img.draw(self.win)
-                            update()
-                            time.sleep(0.07)
-                            img.undraw()
-                    else:
-                        listaAttackRight = []
-                        for i in range(1, 5):
-                            img = Image(pos,
-                                        f'src/sprites/Zombies/Wild Zombie/Attack/Attack_right_{i}.png')
-                            listaAttackRight.append(img)
-                        zombie.setState('hidden')
-                        for img in listaAttackRight:
-                            img.draw(self.win)
-                            update()
-                            time.sleep(0.07)
-                            img.undraw()
-                    zombie.setState('normal')
-                    self.cooldown = True
-                    # print(self.attacked)
+            if self.distvector <= enemy_data['wild_zombie']['attack_range']:
+                if self.damage != True:
+                    if self.cooldown != True:
+                        self.attacked.append(True)
+                        pos = zombie.getAnchor()
+                        if self.directx == -1:
+                            listaAttackLeft = []
+                            for i in range(1, 5):
+                                img = Image(pos,
+                                            f'src/sprites/Zombies/Wild Zombie/Attack/Attack_left_{i}.png')
+                                listaAttackLeft.append(img)
+                            zombie.setState('hidden')
+                            for img in listaAttackLeft:
+                                img.draw(self.win)
+                                update()
+                                time.sleep(0.07)
+                                img.undraw()
+                        else:
+                            listaAttackRight = []
+                            for i in range(1, 5):
+                                img = Image(pos,
+                                            f'src/sprites/Zombies/Wild Zombie/Attack/Attack_right_{i}.png')
+                                listaAttackRight.append(img)
+                            zombie.setState('hidden')
+                            for img in listaAttackRight:
+                                img.draw(self.win)
+                                update()
+                                time.sleep(0.07)
+                                img.undraw()
+                        zombie.setState('normal')
+                        self.cooldown = True
+                        # print(self.attacked)
+            self.attacked.append(False)
             cou2 = perf_counter()
             self.actual_count += cou2 - cou1
 
     def attack(self):
         return self.attacked
 
-    def update(self, listofenemies):
+    def update(self, listofenemies, damage):
         self.listofenemies = listofenemies
+        self.damage = damage
         self.pattern()
+        # print(self.attacked)
         pass

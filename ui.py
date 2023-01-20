@@ -32,8 +32,9 @@ class UI():
         self.score_txt.draw(self.win)
 
     def score(self):
-        self.score_txt.undraw()
-        if self.damage == True:
+
+        if self.attack == True:
+            self.score_txt.undraw()
             self.score_text += 50
             self.score_txt = Text(
                 Point(WIDTH//2, HEIGHT-500), f'{self.score_text}')
@@ -44,26 +45,28 @@ class UI():
     def move(self):
         if self.dinamic_health_bar.getP2().x < self.dinamic_health_bar.getP1().x:
             return False
-        if self.damage == True:
-            self.dinamic_health_bar.undraw()
-            self.health_text.undraw()
-            self.health_text_size -= 0.5
-            self.health_def -= 5
-            self.max_rec -= 5
+        if True in self.damage:
+            for zombie_attack in self.damage:
+                if zombie_attack == True:
+                    self.dinamic_health_bar.undraw()
+                    self.health_text.undraw()
+                    self.health_text_size -= 0.5
+                    self.health_def -= 5
+                    self.max_rec -= 5
 
-            self.dinamic_health_bar = Rectangle(
-                Point(WIDTH//2 - 98, HEIGHT-48), Point(self.max_rec, HEIGHT - 7))
-            center = self.dinamic_health_bar.getCenter()
-            self.health_text = Text(
-                Point(center.x, center.y+5), f'{self.health_def}%')
-            if self.health_text_size > 5:
-                self.health_text.setSize(int(self.health_text_size))
+                    self.dinamic_health_bar = Rectangle(
+                        Point(WIDTH//2 - 98, HEIGHT-48), Point(self.max_rec, HEIGHT - 7))
+                    center = self.dinamic_health_bar.getCenter()
+                    self.health_text = Text(
+                        Point(center.x, center.y+5), f'{self.health_def}%')
+                    if self.health_text_size > 5:
+                        self.health_text.setSize(int(self.health_text_size))
 
-            self.dinamic_health_bar.setFill('red')
-            self.dinamic_health_bar.draw(self.win)
-            self.health_text.draw(self.win)
-            self.dead()
-            # print('hey')
+                    self.dinamic_health_bar.setFill('red')
+                    self.dinamic_health_bar.draw(self.win)
+                    self.health_text.draw(self.win)
+                    self.dead()
+                    # print('hey')
 
     def dead(self):
         if self.health_def == 0:
@@ -75,7 +78,8 @@ class UI():
             dead_text.draw(self.win)
             return True
 
-    def update(self, damage):
+    def update(self, damage, attack):
         self.damage = damage
+        self.attack = attack
         self.move()
         self.score()

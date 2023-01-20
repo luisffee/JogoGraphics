@@ -105,10 +105,10 @@ class Level:
 
     def update(self, key, mouse):
         self.Player.update(key, mouse, self.enemies)
-
+        damage = self.Player.attack(self.enemies)
         # self.win.getKey()
         recpoints = self.Player.drawR()
         self.move_map(self.Player.input(key), recpoints)
 
-        self.enemy.update(self.enemies)
-        self.ui.update(self.enemy.attack())
+        self.enemy.update(self.enemies, damage)
+        self.ui.update(self.enemy.attack(), damage)
