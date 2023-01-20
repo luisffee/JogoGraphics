@@ -1,15 +1,17 @@
 from graphics import *
 from settings import *
-import _thread
+from entity import Entities
 
 
-class Player:
+class Player(Entities):
     def __init__(self, main):
         self.win = main
         self.lastKey = ''
+        self.attackrec()
 
-    def drawP(self, key):
+    def drawP(self, key, mouse):
         self.key = key
+        self.click = mouse
 
         with open('components/position.txt', 'r+') as file2:
             data = file2.read()
@@ -18,28 +20,53 @@ class Player:
         self.listaIdleLeft = []
         for i in range(1, 10):
             img = Image(Point(WIDTH//2, HEIGHT//2),
-                        f'src/sprites/Zombies/Wild Zombie/Idle/Idle_left ({i}).png')
+                        f'src/sprites/Zombies/Wild Zombie/Idle/Idle_left_{i}.png')
             self.listaIdleLeft.append(img)
         self.listaIdleRight = []
         for i in range(1, 10):
             img = Image(Point(WIDTH//2, HEIGHT//2),
-                        f'src/sprites/Zombies/Wild Zombie/Idle/Idle_right ({i}).png')
+                        f'src/sprites/Zombies/Wild Zombie/Idle/Idle_right_{i}.png')
             self.listaIdleRight.append(img)
         self.listaWalkRight = []
         for i in range(1, 11):
             img = Image(Point(WIDTH//2, HEIGHT//2),
-                        f'src/sprites/Zombies/Wild Zombie/Walk/Walk_right ({i}).png')
+                        f'src/sprites/Zombies/Wild Zombie/Walk/Walk_right_{i}.png')
             self.listaWalkRight.append(img)
         self.listaWalkLeft = []
         for i in range(1, 11):
             img = Image(Point(WIDTH//2, HEIGHT//2),
-                        f'src/sprites/Zombies/Wild Zombie/Walk/Walk_left ({i}).png')
+                        f'src/sprites/Zombies/Wild Zombie/Walk/Walk_left_{i}.png')
             self.listaWalkLeft.append(img)
         self.listaWalkUp = []
         for i in range(1, 11):
             img = Image(Point(WIDTH//2, HEIGHT//2),
-                        f'src/sprites/Zombies/Wild Zombie/Walk/Walk_up ({i}).png')
+                        f'src/sprites/Zombies/Wild Zombie/Walk/Walk_right_{i}.png')
             self.listaWalkUp.append(img)
+        self.listaAttackRight = []
+        for i in range(1, 5):
+            img = Image(Point(WIDTH//2, HEIGHT//2),
+                        f'src/sprites/Zombies/Wild Zombie/Attack/Attack_right_{i}.png')
+            self.listaAttackRight.append(img)
+        self.listaAttackLeft = []
+        for i in range(1, 5):
+            img = Image(Point(WIDTH//2, HEIGHT//2),
+                        f'src/sprites/Zombies/Wild Zombie/Attack/Attack_left_{i}.png')
+            self.listaAttackLeft.append(img)
+
+        if self.click:
+            if self.lastKey == 'a':
+                for img in self.listaAttackLeft:
+                    img.draw(self.win)
+                    update()
+                    time.sleep(0.07)
+                    img.undraw()
+            if self.lastKey == 'd':
+                for img in self.listaAttackRight:
+                    img.draw(self.win)
+                    update()
+                    time.sleep(0.07)
+                    img.undraw()
+
         if self.key == 'w' or self.key == 's' or self.key == 'a' or self.key == 'd':
             if self.key == 'd':
                 for img in self.listaWalkRight:
@@ -86,46 +113,11 @@ class Player:
                     self.w = img.getWidth()
                     self.h = img.getHeight()
 
-    def input(self, key):
-        self.key = key
-        with open('components/position.txt', 'r+') as file:
-            data = file.read()
-            data = data.split(':')
-            x = int(data[0])
-            y = int(data[1])
-        direc = [0, 0]
-        if self.key == 'w':
-            '''y -= 10
-            with open('components/position.txt', 'w+') as file:
-                file.write(str(x)+':'+str(y))'''
-            direc[1] += +1
-            return direc
-        if self.key == 's':
-            '''y += 10
-            with open('components/position.txt', 'w+') as file:
-                file.write(str(x)+':'+str(y))'''
-            direc[1] += -1
-            return direc
-        if self.key == 'd':
-            '''x += 10
-            with open('components/position.txt', 'w+') as file:
-                file.write(str(x)+':'+str(y))'''
-            direc[0] += -1
-            return direc
-        if self.key == 'a':
-            '''x -= 10
-            with open('components/position.txt', 'w+') as file:
-                file.write(str(x)+':'+str(y))'''
-            direc[0] += +1
-            return direc
-        return direc
-
     def drawR(self):
-
-        x1 = (WIDTH // 2) - (self.w // 2) + 10
-        y1 = (HEIGHT // 2) - (self.h // 2) + 58
-        x2 = (WIDTH // 2) + (self.w // 2) - 16
-        y2 = (HEIGHT // 2) + (self.h // 2) + 2
+        x1 = (WIDTH // 2) - (self.w // 2)
+        y1 = (HEIGHT // 2) - (self.h // 2)
+        x2 = (WIDTH // 2) + (self.w // 2)
+        y2 = (HEIGHT // 2) + (self.h // 2)
 
         self.rec = Rectangle(Point(x1, y1), Point(
             x2, y2))
@@ -136,5 +128,40 @@ class Player:
         recpoints.append(self.rec.getP2())
         return recpoints
 
-    def update(self, key):
-        self.drawP(key)
+    def attackrec(self):
+        self.x1 = (WIDTH // 2) - (64 // 2)
+        self.y1 = (HEIGHT // 2) - (64 // 2)
+        self.x2 = (WIDTH // 2) + (64 // 2)
+        self.y2 = (HEIGHT // 2) + (64 // 2)
+
+        rec = Rectangle(Point(self.x1 - 50, self.y1 - 50),
+                        Point(self.x2 + 50, self.y2 + 50))
+        rec.draw(self.win)
+
+    def attack(self, enemies):
+        px = []
+        py = []
+
+        for i in range(int(self.x1 - 50), int(self.x2 + 50)):
+            px.append(i)
+        for i in range(int(self.y1 - 50), int(self.y2 + 50)):
+            py.append(i)
+
+        for zombie in enemies:
+            x = zombie.getAnchor().x
+            y = zombie.getAnchor().y
+            rx = [x]
+            ry = [y]
+            a = set(px)
+            b = set(rx)
+            c = set(py)
+            d = set(ry)
+
+            if (a & b) and (c & d):
+                if self.click:
+                    zombie.undraw()
+                    return True
+
+    def update(self, key, mouse, enemies):
+        self.drawP(key, mouse)
+        self.attack(enemies)

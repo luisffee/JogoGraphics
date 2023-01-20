@@ -4,6 +4,7 @@ from support import *
 from player import Player
 from tile import Tile
 from ui import UI
+from enemy import Enemy
 
 
 class Level:
@@ -13,19 +14,22 @@ class Level:
         self.win = main
         self.tiles = []
         self.recs = []
+        self.enemies = []
         self.Player = Player(self.win)
-        self.ui = UI(self.win)
+
         self.speed = 7
 
         self.create_map()
+        self.ui = UI(self.win)
 
     def create_map(self):
         self.bg = Image(Point(2208, 2208),
-                        'src/graphics/map/map.png')
+                        'src/tilesets/Tilemap/base.png')
         self.bg.draw(self.win)
         layouts = {
-            'border': import_csv_layout('src/graphics/map/border_border.csv'),
-            'object': import_csv_layout('src/graphics/map/border_Obj.csv')
+            'border': import_csv_layout('src/tilesets/Tilemap/border.csv'),
+            'object': import_csv_layout('src/tilesets/Tilemap/objects.csv'),
+            'enemies': import_csv_layout('src/tilesets/Tilemap/enemies.csv')
         }
         for style, layout in layouts.items():
             for row_index, row in enumerate(layout):
@@ -40,8 +44,15 @@ class Level:
                             self.recs.append(tile.img)
                         if style == 'object':
                             tile = Tile(self.win, pos, 'object')
-                            self.tiles.append(tile.img)
-                            self.recs.append(tile.rec)
+                            # self.tiles.append(tile.img)
+                            self.recs.append(tile.img)
+                        if style == 'enemies':
+                            self.enemy = Enemy(self.win, pos, 'Wild Zombie')
+
+                            self.img = Image(
+                                Point(pos[0], pos[1]), wild_zombie_idle_left)
+                            self.img.draw(self.win)
+                            self.enemies.append(self.img)
 
     def move_map(self, direction, collision):
         x = direction[0]
@@ -50,6 +61,8 @@ class Level:
         for img in self.tiles:
             img.move((x) * self.speed, (y) * self.speed)
         for img in self.recs:
+            img.move((x) * self.speed, (y) * self.speed)
+        for img in self.enemies:
             img.move((x) * self.speed, (y) * self.speed)
         if self.collision(collision, x, y):
             pass
@@ -85,11 +98,17 @@ class Level:
                     img.move((x * -1) * self.speed, (y * -1) * self.speed)
                 for img in self.recs:
                     img.move((x * -1) * self.speed, (y * -1) * self.speed)
+                for img in self.enemies:
+                    img.move((x * -1) * self.speed, (y * -1) * self.speed)
                 return True
         return False
 
-    def update(self, key):
-        self.Player.update(key)
+    def update(self, key, mouse):
+        self.Player.update(key, mouse, self.enemies)
+
+        # self.win.getKey()
         recpoints = self.Player.drawR()
         self.move_map(self.Player.input(key), recpoints)
-        self.ui.update()
+
+        self.enemy.update(self.enemies)
+        self.ui.update(self.enemy.attack())

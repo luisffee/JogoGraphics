@@ -3,7 +3,7 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "map.tmx",
+    "activeFile": "",
     "expandedProjectPaths": [
         "."
     ],
@@ -171,8 +171,6 @@
     "map.tileWidth": 64,
     "map.width": 70,
     "openFiles": [
-        "map.tmx",
-        "/home/louisf/FACULDADE/2 Ano/AED1/Tarefas/JogoGraphics/src/graphics/tileset2/Map_tiles.tsx"
     ],
     "project": "untitled.tiled-project",
     "property.type": "file",

@@ -328,7 +328,7 @@ class GraphWin(tk.Canvas):
         not been clicked since last call"""
         if self.isClosed():
             raise GraphicsError("checkMouse in closed window")
-        self.update()
+        # self.update()
         if self.mouseX != None and self.mouseY != None:
             x, y = self.toWorld(self.mouseX, self.mouseY)
             self.mouseX = None
@@ -402,8 +402,8 @@ class GraphWin(tk.Canvas):
             item.draw(self)
         self.update()
 
-    def after(self, miliseconds):
-        self.master.after(miliseconds)
+    def after(self, miliseconds, target):
+        self.master.after(miliseconds, target)
 
 
 class Transform:
@@ -885,7 +885,7 @@ class Image(GraphicsObject):
     imageCache = {}  # tk photoimages go here to avoid GC while drawn
 
     def __init__(self, p, *pixmap):
-        GraphicsObject.__init__(self, [])
+        GraphicsObject.__init__(self, ['state'])
         self.anchor = p.clone()
         self.imageId = Image.idCount
         Image.idCount = Image.idCount + 1

@@ -17,9 +17,10 @@ class Tile():
         x = self.pos[0]
         y = self.pos[1]
         if self.type == 'object':
-            self.img = Image(Point(x, y), f'{obj[self.type]}')
+            self.img = Rectangle(Point(x-32, y-32), Point(x+32, y+32))
             self.img.draw(self.win)
-            self.Rec(x, y, self.img)
+            #self.Rec(x, y, self.img)
+            self.img.setState('hidden')
         if self.type == 'border':
             self.img = Rectangle(Point(x-32, y-32), Point(x+32, y+32))
             self.img.draw(self.win)
