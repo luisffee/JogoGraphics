@@ -2,6 +2,8 @@ from csv import reader
 from os import walk
 from graphics import *
 
+# Importar e converter csv para localização dos obj e inimigos
+
 
 def import_csv_layout(path):
     terrain_map = []
@@ -10,6 +12,8 @@ def import_csv_layout(path):
         for row in layout:
             terrain_map.append(list(row))
         return terrain_map
+
+# Importar todas as png da pasta
 
 
 def import_folder(path, position):

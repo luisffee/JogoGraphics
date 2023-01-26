@@ -41,6 +41,8 @@ class Enemy(Entities):
         # self.img.setState('hidden')'''
 
     def pattern(self):
+        # Geral do Inimigo
+
         for zombie in self.listofenemies:
 
             self.directx = 0
@@ -63,12 +65,12 @@ class Enemy(Entities):
                 self.directy = 1
             self.distvector = int(math.hypot(
                 zombie.getAnchor().x - WIDTH//2, zombie.getAnchor().y - HEIGHT//2))
-
+            # Movimento atrás do player
             if (self.distvector <= enemy_data['wild_zombie']['detect_range']):
-                if self.distvector > 45:
+                if self.distvector > 35:
                     zombie.move(
                         enemy_data['wild_zombie']['speed'] * self.directx, enemy_data['wild_zombie']['speed'] * self.directy)
-
+            # Ataque caso na range
             if self.distvector <= enemy_data['wild_zombie']['attack_range']:
                 if self.damage != True:
                     if self.cooldown != True:

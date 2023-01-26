@@ -6,6 +6,7 @@ class Entities():
 
     def __init__(self):
         pass
+    # Input das keys
 
     def input(self, key):
         self.key = key

@@ -24,15 +24,15 @@ class UI():
             Point(WIDTH//2, HEIGHT-500), f'{self.score_text}')
 
         self.dinamic_health_bar.setFill('red')
-        self.dinamic_health_bar.draw(self.win)
+        # self.dinamic_health_bar.draw(self.win)
         self.score_txt.setSize(24)
         self.score_txt.setStyle('bold')
-        self.health_bar_rect.draw(self.win)
-        self.health_text.draw(self.win)
+        # self.health_bar_rect.draw(self.win)
+        # self.health_text.draw(self.win)
         self.score_txt.draw(self.win)
 
     def score(self):
-
+        # Score do player
         if self.attack == True:
             self.score_txt.undraw()
             self.score_text += 50
@@ -43,6 +43,7 @@ class UI():
             self.score_txt.draw(self.win)
 
     def move(self):
+        # Barra de vida do player
         if self.dinamic_health_bar.getP2().x < self.dinamic_health_bar.getP1().x:
             return False
         if True in self.damage:
@@ -69,6 +70,7 @@ class UI():
                     # print('hey')
 
     def dead(self):
+        # Texto de morto do player
         if self.health_def == 0:
             dead_text = Text(Point(WIDTH//2, HEIGHT//2 - 20),
                              'You Are DEAD !!!')
@@ -81,5 +83,5 @@ class UI():
     def update(self, damage, attack):
         self.damage = damage
         self.attack = attack
-        self.move()
+        # self.move()
         self.score()

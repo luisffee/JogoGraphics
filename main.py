@@ -11,6 +11,8 @@ class Game:
         # pass
 
     def run(self):
+        # Game Loop
+
         while True:
             self.key = self.screen.checkKey()
             self.click = self.screen.checkMouse()
@@ -26,6 +28,8 @@ class Game:
         self.screen.close()
 
     def menu(self):
+        # Esc Menu
+
         recbg = Rectangle(Point(0, 0), Point(800, 600))
         bg = color_rgb(100, 100, 100)
         recbg.setFill(bg)

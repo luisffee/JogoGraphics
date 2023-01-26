@@ -10,6 +10,8 @@ class Player(Entities):
         self.attackrec()
 
     def drawP(self, key, mouse):
+        # Animação do player
+
         self.key = key
         self.click = mouse
 
@@ -72,7 +74,7 @@ class Player(Entities):
                 for img in self.listaWalkRight:
                     img.draw(self.win)
                     update()
-                    # time.sleep(0.07)
+                    # time.sleep(0.03)
                     img.undraw()
                     self.w = img.getWidth()
                     self.h = img.getHeight()
@@ -81,7 +83,7 @@ class Player(Entities):
                 for img in self.listaWalkLeft:
                     img.draw(self.win)
                     update()
-                    # time.sleep(0.07)
+                    # time.sleep(0.03)
                     img.undraw()
                     self.w = img.getWidth()
                     self.h = img.getHeight()
@@ -114,6 +116,8 @@ class Player(Entities):
                     self.h = img.getHeight()
 
     def drawR(self):
+        # Retangulo em volta do player / Colisão
+
         x1 = (WIDTH // 2) - (self.w // 2)
         y1 = (HEIGHT // 2) - (self.h // 2)
         x2 = (WIDTH // 2) + (self.w // 2)
@@ -129,6 +133,8 @@ class Player(Entities):
         return recpoints
 
     def attackrec(self):
+        # Retangulo em volta do player / attack range
+
         self.x1 = (WIDTH // 2) - (64 // 2)
         self.y1 = (HEIGHT // 2) - (64 // 2)
         self.x2 = (WIDTH // 2) + (64 // 2)
@@ -139,6 +145,8 @@ class Player(Entities):
         rec.draw(self.win)
 
     def attack(self, enemies):
+        # Checkagem de inimigos na range do player
+
         px = []
         py = []
 

@@ -23,6 +23,8 @@ class Level:
         self.ui = UI(self.win)
 
     def create_map(self):
+        # Criação do mapa e background
+
         self.bg = Image(Point(2208, 2208),
                         'src/tilesets/Tilemap/base.png')
         self.bg.draw(self.win)
@@ -55,6 +57,8 @@ class Level:
                             self.enemies.append(self.img)
 
     def move_map(self, direction, collision):
+        # Movimento do mapa e objetos
+
         x = direction[0]
         y = direction[1]
         self.bg.move((x) * self.speed, (y) * self.speed)
@@ -69,6 +73,7 @@ class Level:
             # self.ui.move()
 
     def collision(self, playerRecs, x=None, y=None):
+        # Colisão
 
         pp1 = playerRecs[0]
         pp2 = playerRecs[1]

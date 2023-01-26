@@ -10,6 +10,7 @@ class Tile():
         self.draw()
 
     def draw(self):
+        # Retangulo em volta dos objetos / Colisão
         obj = {
             'border': 'src/sprites/rock.png',
             'object': 'src/sprites/Tree1.png'
@@ -27,6 +28,7 @@ class Tile():
             self.img.setState('hidden')
 
     def Rec(self, x, y, img):
+        # Retangulo em volta de obj tipo imagem / Colisão
         w = img.getWidth()
         h = img.getHeight()
         self.rec = Rectangle(Point(x - (w/2), y - (h/2)),

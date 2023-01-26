@@ -5,8 +5,9 @@ HEIGHT = 600
 FPS = 60
 TILESIZE = 64
 
+
 enemy_data = {
-    'wild_zombie': {'health': 20, 'speed': 1.5, 'attack_range': 45, 'detect_range': 200},
+    'wild_zombie': {'health': 20, 'speed': 1.5, 'attack_range': 35, 'detect_range': 200},
     'zombie_man': {'health': 20, 'speed': 3, 'attack_range': 40, 'detect_range': 100},
     'zombie_woman': {'health': 20, 'speed': 3, 'attack_range': 40, 'detect_range': 100}
 }
